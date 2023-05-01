@@ -10,6 +10,12 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    //Grupo formado por:
+    //Gabriel de Freitas Lima
+    //Igor Rubio Lazarotto
+    //João Vitor Perin
+    //Thiago Jungles Caron
+
     val REQUEST_IMAGE_CAPTURE = 1
     private lateinit var imageView: ImageView
     private lateinit var take_picture_btn: Button
