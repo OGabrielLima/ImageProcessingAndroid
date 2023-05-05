@@ -8,6 +8,7 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.drawToBitmap
 
 class MainActivity : AppCompatActivity() {
     //Grupo formado por:
@@ -32,12 +33,11 @@ class MainActivity : AppCompatActivity() {
             dispatchTakePictureIntent()
         }
 
-
         apply_filter_btn = findViewById(R.id.apply_filter)
         apply_filter_btn.setOnClickListener{
-            imageView.buildDrawingCache()
-            val bmap = imageView.drawingCache
-            imageView.setImageBitmap(convertToGrayscale(bmap))
+            //this.imageView.buildDrawingCache()
+            val bmap = this.imageView.drawToBitmap()
+            this.imageView.setImageBitmap(convertToGrayscale(bmap))
         }
     }
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
-            imageView.setImageBitmap(imageBitmap)
+            this.imageView.setImageBitmap(imageBitmap)
         }
     }
 
